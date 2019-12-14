@@ -1,0 +1,37 @@
+<div align="center" *ngIf="!cargando && !subiendofoto">
+    <br>
+    <br>
+    <div class="logincontent">
+        <p>Nombre:</p>
+        <input type="text" class="form-control" name="Nombre" [(ngModel)]="Nombre">
+        <br>
+        <p>Apellido:</p>
+        <input type="text" class="form-control" name="Apellido" [(ngModel)]="Apellido">
+        <br>
+        <p>Correo:</p>
+        <input type="email" class="form-control" name="Usuario" [(ngModel)]="Usuario">
+        <br>
+        <p>Contraseña:</p>
+        <input type="password" class="form-control" name="Pass" [(ngModel)]="Pass">
+        <br>
+        <p>Telefono:</p>
+        <input type="tel" class="form-control" name="Telefono" [(ngModel)]="Telefono">
+        <br>
+        <p>Foto:</p>
+        <input type="file" class="form-control" accept="image/*" (change)="SelectFile($event)" name="Foto">
+        <br>
+        <button (click)="Registrar()" class="btn btn-primary">Registrarte</button>
+        <h6>¿Ya estás registrado? <a routerLink="/IniciarSesion">Inicia sesión</a></h6>
+    </div>
+    <br>
+</div>
+<div align="center" *ngIf="cargando || subiendofoto">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="assets/imgs/cargando.gif">
+</div>
+<br>

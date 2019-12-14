@@ -1,0 +1,28 @@
+<div align=center>
+    <div>
+        <h2>Precio</h2>
+        <input type="number" name="" id="precio" placeholder="precio" [(ngModel)]="precio" >
+        <br>
+        <br>
+    </div>
+    <div>
+        <h2>Direccion</h2>
+        <input type="text" name="" id="direccion" placeholder="direccion"  [(ngModel)]="direccion">
+        <br>
+        <br>
+    </div>
+    <div>
+        <h2>Codigo Postal</h2>
+        <input type="text" name="" id="cp1" placeholder="Codigo postal" [(ngModel)]="cp">
+        <br>
+        <br>
+    </div>
+    <div>
+        <button (click)="registrar()">Registrar</button>
+    </div>
+</div>
+<div>
+    <agm-map [latitude]="lat" [longitude]="lng" >
+        
+    </agm-map>
+</div>

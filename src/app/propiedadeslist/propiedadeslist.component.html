@@ -1,0 +1,31 @@
+<h2 align=center>Mis propiedades</h2>
+<br>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Precio</th>
+        <th scope="col">Domicilio</th>
+        <th scope="col">Codigo postal</th>
+        <th scope="col">Estatus</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of user_data">
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.precio}}</td>
+        <td>{{item.domicilio}}</td>
+        <td>{{item.codigoPostal}}</td>
+        <td>
+            <div *ngIf="item.status==true">
+                <button class="btn btn-success">
+                    <i class="fa fa-check-square" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div *ngIf="item.status==false">
+                <p>Deshabilitado</p>        
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>

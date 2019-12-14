@@ -1,0 +1,24 @@
+<div align="center" *ngIf="!cargando">
+    <br>
+    <br>
+    <div class="logincontent">
+        <br>
+        <p>Correo:</p>
+        <input type="text" class="form-control" name="Usuario" [(ngModel)]="Usuario">
+        <br>
+        <p>Contraseña:</p>
+        <input type="password" class="form-control" name="Pass" [(ngModel)]="Pass">
+        <br>
+        <button (click)="Conectar()" class="btn btn-primary">Iniciar sesión</button>
+        <h6>¿No estás registrado? <a routerLink="/registro">Regístrate</a></h6>
+    </div>
+</div>
+<div align="center" *ngIf="cargando">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="assets/imgs/cargando.gif">
+</div>
