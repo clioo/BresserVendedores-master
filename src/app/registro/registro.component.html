@@ -18,6 +18,7 @@
         <input type="tel" class="form-control" name="Telefono" [(ngModel)]="Telefono">
         <br>
         <p>Foto:</p>
+        <img src="{{archivo.URL}}" width="300" height="200" *ngIf="archivo != null">
         <input type="file" class="form-control" accept="image/*" (change)="SelectFile($event)" name="Foto">
         <br>
         <button (click)="Registrar()" class="btn btn-primary">Registrarte</button>

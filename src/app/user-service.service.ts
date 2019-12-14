@@ -33,7 +33,7 @@ export class UserServiceService {
     this.crud.db.collection('Usuarios')
     .where('correo', '==', usuario)
     .where('contraseña', '==', contraseña)
-    .where('tipo', '==', 3)
+    .where('tipo', '==', 1)
     .limit(1).get().then((res) => {
       if (res.size > 0) {
         res.forEach((doc) => {
@@ -60,7 +60,7 @@ export class UserServiceService {
   Verificarcorreo(correo: string, entonces, error) {
     this.crud.db.collection('Usuarios')
     .where('correo', '==', correo)
-    .where('tipo', '==', 3)
+    .where('tipo', '==', 1)
     .get().then((res) => {
       if (res.size === 0) {
         entonces();
@@ -76,16 +76,8 @@ export class UserServiceService {
     contraseña: string,
     foto: string,
     telefono: string,
-    exito, error
-    ) {
-    this.crud.db.collection('Usuarios')
-    .where('tipo', '==', 2)
-    .get().then(snap => {
-      const max = snap.size;
-      const randomIndex = Math.floor(Math.random() * max);
-      const agente = snap.docs[randomIndex].data();
-      agente.id = snap.docs[randomIndex].id;
-      console.log(agente);
+    exito, 
+    error) {
       this.Usuario = {
         nombre,
         correo,
@@ -93,9 +85,7 @@ export class UserServiceService {
         foto,
         apellido,
         telefono,
-        tipo: 3,
-        favoritos: [],
-        agente_id: agente.id
+        tipo: 1
       };
       this.crud.db.collection('Usuarios').add(this.Usuario).then(() => {
         const Token = {
@@ -107,6 +97,5 @@ export class UserServiceService {
       }).catch(() => {
         error();
       });
-    });
   }
 }

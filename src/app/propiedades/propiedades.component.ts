@@ -26,6 +26,7 @@ export class PropiedadesComponent implements OnInit {
     const doc = this.crud.db.collection('Propiedades').doc();
     this.propiedad_nueva = {
       id: doc.id,
+      nombre: "",
       propietario_id: this.userService.Usuario.id,
       precio: this.precio,
       tipoVenta: 1,
