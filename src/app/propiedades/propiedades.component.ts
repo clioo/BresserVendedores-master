@@ -22,7 +22,10 @@ export class PropiedadesComponent implements OnInit {
   }
 
   registrar(){
+    //FALTA VALIDAR Y AGREGAR FOTOS
+    const doc = this.crud.db.collection('Propiedades').doc();
     this.propiedad_nueva = {
+      id: doc.id,
       propietario_id: this.userService.Usuario.id,
       precio: this.precio,
       tipoVenta: 1,
@@ -30,14 +33,13 @@ export class PropiedadesComponent implements OnInit {
       cp: this.cp,
       latitud: this.lat,
       longitud: this.lng,
-      timestamp: new Date().getTime()
+      timestamp: new Date().getTime(),
+      estado: true,
+      imagenes: []
     }
-    /*
-    //Falta aqui insertar
-    //recarga pagina
-    window.location.reload();
-    */
-
+    this.crud.insert('Propiedades', doc, ()=>{
+      location.reload()
+    }, ()=>{})
   }
  
 

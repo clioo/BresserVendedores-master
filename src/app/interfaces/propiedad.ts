@@ -8,4 +8,6 @@ export interface Propiedad {
   latitud: number;
   longitud: number;
   timestamp: number;
+  estado: boolean;
+  imagenes: string[];
 }
