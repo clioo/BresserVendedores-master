@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { PropiedadeslistComponent } from './propiedadeslist/propiedadeslist.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
+import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { RegistroComponent } from './registro/registro.component';
     VendedoresComponent,
     PropiedadeslistComponent,
     LoginComponent,
-    RegistroComponent
+    RegistroComponent,
+    FooterComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

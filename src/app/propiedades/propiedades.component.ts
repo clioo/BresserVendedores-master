@@ -1,15 +1,8 @@
 import { Component, OnInit,AfterViewInit,ElementRef } from '@angular/core';
 '@angular/core';
 import { DbService } from "../db.service";
-export interface Propiedad {
-  propietario_id: string;
-  precio: number;
-  tipoVenta: number;
-  domicilio: string;
-  cp: string;
-  latitud: number;
-  longitud: number;
-}
+import { Propiedad } from '../interfaces/propiedad';
+import { UserServiceService } from '../user-service.service';
 @Component({
   selector: 'app-propiedades',
   templateUrl: './propiedades.component.html',
@@ -23,23 +16,27 @@ export class PropiedadesComponent implements OnInit {
   direccion
   cp
   propiedad_nueva:Propiedad
-  constructor(public crud:DbService) { }
+  constructor(public crud:DbService, public userService: UserServiceService) { }
 
   ngOnInit() {
   }
 
   registrar(){
+    this.propiedad_nueva = {
+      propietario_id: this.userService.Usuario.id,
+      precio: this.precio,
+      tipoVenta: 1,
+      domicilio: this.direccion,
+      cp: this.cp,
+      latitud: this.lat,
+      longitud: this.lng,
+      timestamp: new Date().getTime()
+    }
     /*
-    alert(this.cp);
-    this.propiedad_nueva.cp=this.cp;
-    this.propiedad_nueva.latitud=this.lat;
-    this.propiedad_nueva.longitud=this.lng;
-    this.propiedad_nueva.precio=Number(this.precio);
-    //this.propiedad_nueva.propietario_id=this.precio;
-    this.propiedad_nueva.domicilio=this.direccion;
     //Falta aqui insertar
     //recarga pagina
-    window.location.reload();*/
+    window.location.reload();
+    */
 
   }
  
