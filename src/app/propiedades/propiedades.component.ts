@@ -10,11 +10,11 @@ import { UserServiceService } from '../user-service.service';
 })
 
 export class PropiedadesComponent implements OnInit {
-  lat=25.7901963
-  lng=-108.986368
-  precio
-  direccion
-  cp
+  lat = 25.8147201
+  lng = -108.980121
+  precio = ""
+  direccion = ""
+  cp = ""
   propiedad_nueva:Propiedad
   constructor(public crud:DbService, public userService: UserServiceService) { }
 
@@ -27,8 +27,9 @@ export class PropiedadesComponent implements OnInit {
     this.propiedad_nueva = {
       id: doc.id,
       titulo: "",
-      propietario_id: this.userService.Usuario.id,
-      precio: this.precio,
+      descripcion: "",
+      propietario_id: this.userService.Usuario.correo,
+      precio: parseFloat(this.precio),
       tipoVenta: 1,
       domicilio: this.direccion,
       cp: this.cp,
@@ -38,9 +39,9 @@ export class PropiedadesComponent implements OnInit {
       estado: true,
       imagenes: []
     }
-    this.crud.insert('Propiedades', doc, ()=>{
+    this.crud.db.collection('Propiedades').doc(this.propiedad_nueva.id).set(this.propiedad_nueva, {merge: true}).then(()=>{
       location.reload()
-    }, ()=>{})
+    });
   }
  
 

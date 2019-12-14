@@ -1,7 +1,8 @@
 export interface Propiedad {
   id?: string;
-  titulo: string;
   propietario_id: string;
+  titulo: string;
+  descripcion: string;
   precio: number;
   tipoVenta: number;
   domicilio: string;
