@@ -22,7 +22,7 @@ export class PropiedadesComponent implements OnInit {
   }
 
   registrar(){
-    //FALTA VALIDAR Y AGREGAR FOTOS
+    //FALTA VALIDAR Y AGREGAR FOTOS Y GOOGLEMAPS
     const doc = this.crud.db.collection('Propiedades').doc();
     this.propiedad_nueva = {
       id: doc.id,
