@@ -12,5 +12,4 @@ export interface Propiedad {
   timestamp: number;
   estado: boolean;
   imagenes: string[];
-  keywords: string[];
 }
