@@ -38,7 +38,7 @@ export class PropiedadesComponent implements OnInit {
       timestamp: new Date().getTime(),
       estado: true,
       imagenes: [],
-      keywords: [this.direccion, this.cp]
+      keywords: [this.direccion.toLowerCase(), this.cp.toLowerCase()]
     }
     this.crud.db.collection('Propiedades').doc(this.propiedad_nueva.id).set(this.propiedad_nueva, {merge: true}).then(()=>{
       location.reload()
