@@ -4,7 +4,7 @@ export interface Usuario {
     apellido: string;
     foto: string;
     correo: string;
-    contraseña: string;
+    contrasena: string;
     telefono: string;
     tipo: number;
     agente_id?: string;

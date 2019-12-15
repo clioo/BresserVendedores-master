@@ -15,13 +15,13 @@ export class UserServiceService {
       const userlogin = JSON.parse(this.Token);
       crud.db.collection('Usuarios')
       .where('correo', '==', userlogin.User)
-      .where('contraseña', '==', userlogin.contraseña)
+      .where('contrasena', '==', userlogin.contrasena)
       .limit(1)
       .get()
       .then((res) => {
         res.forEach((doc) => {
           this.Usuario = JSON.parse(JSON.stringify(doc.data()));
-          delete this.Usuario.contraseña;
+          delete this.Usuario.contrasena;
         });
         if (res.size === 0) {
           this.Desconectar();
@@ -29,10 +29,10 @@ export class UserServiceService {
       });
     }
   }
-  Conectar(usuario: string, contraseña: string, exito, error) {
+  Conectar(usuario: string, contrasena: string, exito, error) {
     this.crud.db.collection('Usuarios')
     .where('correo', '==', usuario)
-    .where('contraseña', '==', contraseña)
+    .where('contrasena', '==', contrasena)
     .where('tipo', '==', 1)
     .limit(1).get().then((res) => {
       if (res.size > 0) {
@@ -40,10 +40,10 @@ export class UserServiceService {
           this.Usuario = JSON.parse(JSON.stringify(doc.data()));
           const Token = {
             User: this.Usuario.correo,
-            contraseña: this.Usuario.contraseña
+            contrasena: this.Usuario.contrasena
           };
           localStorage.setItem('Token', JSON.stringify(Token));
-          delete this.Usuario.contraseña;
+          delete this.Usuario.contrasena;
           exito();
         });
       } else {
@@ -73,7 +73,7 @@ export class UserServiceService {
     nombre: string,
     apellido: string,
     correo: string,
-    contraseña: string,
+    contrasena: string,
     foto: string,
     telefono: string,
     exito, 
@@ -81,7 +81,7 @@ export class UserServiceService {
       this.Usuario = {
         nombre,
         correo,
-        contraseña,
+        contrasena,
         foto,
         apellido,
         telefono,
@@ -90,7 +90,7 @@ export class UserServiceService {
       this.crud.db.collection('Usuarios').add(this.Usuario).then(() => {
         const Token = {
           User: this.Usuario.correo,
-          contraseña: this.Usuario.contraseña
+          contrasena: this.Usuario.contrasena
         };
         localStorage.setItem('Token', JSON.stringify(Token));
         exito();
