@@ -4,7 +4,7 @@ export interface Propiedad {
   titulo: string;
   descripcion: string;
   precio: number;
-  tipoVenta: number;
+  tipo_venta: number;
   domicilio: string;
   cp: string;
   latitud: number;

@@ -15,14 +15,14 @@
         <th scope="row">{{item.id}}</th>
         <td>{{item.precio}}</td>
         <td>{{item.domicilio}}</td>
-        <td>{{item.codigoPostal}}</td>
+        <td>{{item.cp}}</td>
         <td>
-            <div *ngIf="item.status==true">
-                <button class="btn btn-success">
+            <div *ngIf="item.estado==true">
+                <a class="btn btn-success" [routerLink]="['/routePath']" routerLinkActive="router-link-active" >
                     <i class="fa fa-check-square" aria-hidden="true"></i>
-                </button>
+                </a>
             </div>
-            <div *ngIf="item.status==false">
+            <div *ngIf="item.estado==false">
                 <p>Deshabilitado</p>        
             </div>
         </td>

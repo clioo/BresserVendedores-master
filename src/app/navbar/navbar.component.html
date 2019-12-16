@@ -8,6 +8,15 @@
         <li class="nav-item active" *ngIf="userservice.Usuario != null">
           <a class="nav-link">Bienvenido {{userservice.Usuario.Nombre}}<span class="sr-only"></span></a>
         </li>
+        <li class="nav-item active" *ngIf="userservice.Usuario != null">
+          <a class="nav-link" [routerLink]="[ '/propiedades' ]">Propiedades<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active" *ngIf="userservice.Usuario != null">
+          <a class="nav-link" [routerLink]="[ '/propiedades/nueva' ]">Nueva propiedad<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item active" *ngIf="userservice.Usuario != null">
+          <a class="nav-link" [routerLink]="[ '/registro' ]">Nuevo agente<span class="sr-only"></span></a>
+        </li>
         <!-- AGREGA CODIGO DE VENTANAS -->
         
         <li class="nav-item dropdown" *ngIf="userservice.Usuario != null">

@@ -20,7 +20,7 @@ export class PropiedadeslistComponent implements OnInit {
   user_data:propiedades[]=[]
   constructor(public crud:DbService) { 
     const self=this
-    this.crud.db.collection("propiedades").get().then(d=>{
+    this.crud.db.collection("Propiedades").get().then(d=>{
         d.forEach((doc) => {
           console.log(`${doc.id} => ${doc.data()}`);
           var documento = doc.data();

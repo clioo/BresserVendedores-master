@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,10 +26,11 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBSKNno0k2uTLczSQL08pRkCYN_Q419-hg'
+      apiKey: 'AIzaSyAUg347ce_IChmbQDr2VTH7limDfVM1BUs'
       /* apiKey is required, unless you are a 
       premium customer, in which case you can 
       use clientId 
